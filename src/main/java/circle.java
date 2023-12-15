@@ -1,8 +1,11 @@
 public class circle extends figure{
     private double r;
     private double d;
-    public void setR(double r) {
+    public circle(double r){
         this.r = r;
+        d=0;
+        area=0;
+        perimeter=0;
     }
     public double getD() {
         return d;

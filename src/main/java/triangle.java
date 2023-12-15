@@ -1,8 +1,11 @@
 public class triangle extends figure{
     private final double[] sides=new double[3];
     private int view;
-    public void setSides(double[] sides) {
+    public triangle(double[] sides){
         System.arraycopy(sides, 0, this.sides, 0, 3);
+        view=0;
+        area=0;
+        perimeter=0;
     }
     public int getView() {
         return view;

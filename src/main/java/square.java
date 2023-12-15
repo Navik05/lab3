@@ -1,8 +1,11 @@
 public class square extends figure{
     private double a;
     private double diagonal;
-    public void setA(float a) {
-        this.a = a;
+    public square(double a){
+        this.a=a;
+        diagonal=0;
+        area=0;
+        perimeter=0;
     }
     public double getDiagonal() {
         return diagonal;
