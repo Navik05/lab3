@@ -7,3 +7,18 @@ class Board:
             self.cells[row][col] = player
             return True
         return False
+
+    def check_win(self, player):
+        # столбцы и строки
+        for i in range(3):
+            if all(self.cells[i][j] == player for j in range(3)):
+                return True
+            if all(self.cells[j][i] == player for j in range(3)):
+                return True
+
+        # диагонали
+        if all(self.cells[i][i] == player for i in range(3)):
+            return True
+        if all(self.cells[i][2 - i] == player for i in range(3)):
+            return True
+        return False
