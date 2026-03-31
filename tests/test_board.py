@@ -16,5 +16,35 @@ class TestBoard(unittest.TestCase):
         self.assertEqual(board.cells[0][0], 'X')
         self.assertFalse(board.make_move(0, 0, 'O'))
 
+    def test_win_conditions(self):
+        board = Board()
+
+        # победа в ряду
+        board.make_move(0, 0, 'X')
+        board.make_move(0, 1, 'X')
+        board.make_move(0, 2, 'X')
+        self.assertTrue(board.check_win('X'))
+
+        # победа в столбце
+        board = Board()
+        board.make_move(0, 0, 'O')
+        board.make_move(1, 0, 'O')
+        board.make_move(2, 0, 'O')
+        self.assertTrue(board.check_win('O'))
+
+        # диагональная победа
+        board = Board()
+        board.make_move(0, 0, 'X')
+        board.make_move(1, 1, 'X')
+        board.make_move(2, 2, 'X')
+        self.assertTrue(board.check_win('X'))
+
+        # победы нет
+        board = Board()
+        board.make_move(0, 0, 'X')
+        board.make_move(0, 1, 'O')
+        board.make_move(0, 2, 'X')
+        self.assertFalse(board.check_win('X'))
+
 if __name__ == '__main__':
     unittest.main()
